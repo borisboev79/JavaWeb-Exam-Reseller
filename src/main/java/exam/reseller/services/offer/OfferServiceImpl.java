@@ -60,6 +60,8 @@ public class OfferServiceImpl implements OfferService {
     }
 
 
+
+
     @Override
     @Transactional
     public void deleteOfferById(Long id) {
@@ -68,14 +70,26 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     @Transactional
-    public void deleteAllOffersByUser(Long id) {
-        this.offerRepository.deleteAllByUser_Id(id);
+    public void buyOfferById(Long id) {
+        Offer offer = this.offerRepository.findById(id).get();
+        User buyer = this.userRepository.findById(this.loggedUser.getId()).get();
+        User seller = offer.getUser();
+
+        offer.setUser(buyer);
+        buyer.getBoughtOffers().add(offer);
+        seller.getOffers().remove(offer);
+
+
+        System.out.println("yeah");
+
     }
+
 
     private OfferViewModel viewModel(Offer offer) {
         return OfferViewModel.builder()
                 .id(offer.getId())
                 .username(offer.getUser().getUsername())
+                .description(offer.getDescription())
                 .condition(offer.getCondition().getName().getLabel())
                 .price(offer.getPrice())
                 .build();

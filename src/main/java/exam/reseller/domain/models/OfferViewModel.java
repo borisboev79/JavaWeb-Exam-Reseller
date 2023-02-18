@@ -13,6 +13,7 @@ public class OfferViewModel {
     private Long id;
     private String username;
     private String condition;
+    private String description;
     private BigDecimal price;
 
 }

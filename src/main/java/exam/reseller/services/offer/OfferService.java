@@ -15,6 +15,6 @@ public interface OfferService {
 
     void deleteOfferById(Long id);
 
-    void deleteAllOffersByUser(Long id);
+    void buyOfferById(Long id);
 
 }

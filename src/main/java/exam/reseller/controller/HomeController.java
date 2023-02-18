@@ -38,22 +38,23 @@ public class HomeController {
         List<OfferViewModel> otherOffers = this.offerService.getAllNonLoggedUserOffers();
 
         model.setViewName("home");
-        // model.addObject("products", products);
+        model.addObject("loggedUserOffers", loggedUserOffers);
+        model.addObject("otherOffers", otherOffers);
         model.addObject("loggedUserId", this.loggedUser.getId());
 
         return model;
     }
 
-    @GetMapping("/buy/{id}")
+    @GetMapping("/offers/buy/{id}")
     public String buyOffer(@PathVariable Long id) {
-        this.offerService.deleteOfferById(id);
+
+        this.offerService.buyOfferById(id);
 
         return "redirect:/home";
     }
 
     @GetMapping("/buy/all/{id}")
     public String buyAllProducts(@PathVariable Long id) {
-        this.offerService.deleteAllOffersByUser(id);
 
         return "redirect:/home";
     }
