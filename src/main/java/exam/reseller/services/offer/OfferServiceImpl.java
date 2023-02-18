@@ -79,6 +79,7 @@ public class OfferServiceImpl implements OfferService {
         offer.setUser(buyer);
         buyer.getBoughtOffers().add(offer);
         seller.getOffers().remove(offer);
+        buyer.getOffers().remove(offer);
 
 
     }
