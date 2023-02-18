@@ -55,6 +55,7 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public List<OfferViewModel> getAllNonLoggedUserOffers() {
+
         return this.offerRepository.findAllByUser_IdNot(this.loggedUser.getId()).orElse(null).stream()
                 .map(this::viewModel).toList();
     }
@@ -79,8 +80,6 @@ public class OfferServiceImpl implements OfferService {
         buyer.getBoughtOffers().add(offer);
         seller.getOffers().remove(offer);
 
-
-        System.out.println("yeah");
 
     }
 
