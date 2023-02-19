@@ -1,7 +1,7 @@
 package exam.reseller.domain.models.binding;
 
-import exam.reseller.validations.checkUsernameAndEmailExistence.ValidateUniqueFields;
-import exam.reseller.validations.passwordMatcher.PasswordMatch;
+import exam.reseller.util.validations.checkUsernameAndEmailExistence.ValidateUniqueFields;
+import exam.reseller.util.validations.passwordMatcher.PasswordMatch;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
