@@ -42,6 +42,7 @@ public class HomeController {
         List<OfferViewModel> boughtOffers = this.userService.allBought();
 
         model.setViewName("home");
+
         model.addObject("loggedUserOffers", loggedUserOffers);
         model.addObject("otherOffers", otherOffers);
         model.addObject("boughtOffers", boughtOffers);

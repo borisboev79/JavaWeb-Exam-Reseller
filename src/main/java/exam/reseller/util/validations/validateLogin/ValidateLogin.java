@@ -1,4 +1,4 @@
-package exam.reseller.validations.checkUserExistence;
+package exam.reseller.util.validations.validateLogin;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

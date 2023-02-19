@@ -1,13 +1,11 @@
-package exam.reseller.validations.checkUsernameAndEmailExistence;
+package exam.reseller.util.validations.checkUsernameAndEmailExistence;
 
 import exam.reseller.domain.entities.User;
-import exam.reseller.domain.models.binding.UserLoginModel;
 import exam.reseller.domain.models.binding.UserRegisterModel;
 import exam.reseller.services.user.UserService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 

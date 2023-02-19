@@ -29,11 +29,12 @@ public class User extends BaseEntity {
     private String email;
 
     @OneToMany
-    (mappedBy = "user", targetEntity = Offer.class)
+    (mappedBy = "seller", targetEntity = Offer.class)
     @Fetch(FetchMode.JOIN)
     private List<Offer> offers;
 
     @OneToMany
+    (mappedBy = "buyer", targetEntity = Offer.class)
     @Fetch(FetchMode.JOIN)
     private List<Offer> boughtOffers;
 

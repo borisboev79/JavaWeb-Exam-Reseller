@@ -32,5 +32,9 @@ public class Offer extends BaseEntity {
 
     @ManyToOne
     @Fetch(FetchMode.JOIN)
-    private User user;
+    private User seller;
+
+    @ManyToOne
+    @Fetch(FetchMode.JOIN)
+    private User buyer;
 }

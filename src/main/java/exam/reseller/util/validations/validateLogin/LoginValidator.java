@@ -1,4 +1,4 @@
-package exam.reseller.validations.checkUserExistence;
+package exam.reseller.util.validations.validateLogin;
 
 import exam.reseller.domain.entities.User;
 import exam.reseller.domain.models.binding.UserLoginModel;
