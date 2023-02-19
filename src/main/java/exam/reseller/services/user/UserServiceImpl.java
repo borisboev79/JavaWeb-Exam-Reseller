@@ -34,29 +34,28 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
-    public List<OfferViewModel> allBought(){
-        User user = this.userRepository.findById(this.loggedUser.getId()).get();
-        return user.getBoughtOffers().stream().map(offer -> OfferViewModel.builder()
-                .id(offer.getId())
-                .description(offer.getDescription())
-                .condition(offer.getCondition().getName().getLabel())
-                .price(offer.getPrice())
-                .username(offer.getUser().getUsername())
-                .build()).collect(Collectors.toList());
+    public List<OfferViewModel> allBought() {
+        User user = this.userRepository.findById(this.loggedUser.getId()).orElseThrow();
+        return user.getBoughtOffers().stream().map(offer -> offerViewModelBuilder(offer, offer.getBuyer()
+                        .getUsername()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<OfferViewModel> allOwn() {
-        User user = this.userRepository.findById(this.loggedUser.getId()).get();
-        return user.getOffers().stream().map(offer -> OfferViewModel.builder()
+        User user = this.userRepository.findById(this.loggedUser.getId()).orElseThrow();
+        return user.getOffers().stream().map(offer -> offerViewModelBuilder(offer, offer.getSeller()
+                        .getUsername()))
+                .collect(Collectors.toList());
+    }
+
+    private OfferViewModel offerViewModelBuilder(Offer offer, String username) {
+        return OfferViewModel.builder()
                 .id(offer.getId())
                 .description(offer.getDescription())
                 .condition(offer.getCondition().getName().getLabel())
                 .price(offer.getPrice())
-                .username(offer.getUser().getUsername())
-                .build()).collect(Collectors.toList());
+                .username(username)
+                .build();
     }
-
-
 }

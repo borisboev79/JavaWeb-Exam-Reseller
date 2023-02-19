@@ -1,6 +1,5 @@
 package exam.reseller.services.offer;
 
-import exam.reseller.domain.enums.ConditionType;
 import exam.reseller.domain.models.OfferAddModel;
 import exam.reseller.domain.models.OfferViewModel;
 
@@ -10,7 +9,6 @@ public interface OfferService {
 
     void addOffer(OfferAddModel offerAddModel);
 
-    List<OfferViewModel> getAllLoggedUserOffers();
     List<OfferViewModel> getAllNonLoggedUserOffers();
 
     void deleteOfferById(Long id);

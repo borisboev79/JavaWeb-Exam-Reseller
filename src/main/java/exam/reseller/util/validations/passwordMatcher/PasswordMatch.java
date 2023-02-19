@@ -1,4 +1,4 @@
-package exam.reseller.validations.checkUsernameAndEmailExistence;
+package exam.reseller.util.validations.passwordMatcher;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -10,13 +10,12 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Constraint(validatedBy = FieldExistenceValidator.class)
-public @interface ValidateUniqueFields {
+@Constraint(validatedBy = PasswordMatcher.class)
+public @interface PasswordMatch {
 
-    String message() default "User with this username or email already exists";
+    String message() default "Passwords don't match";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
 }
-

@@ -1,4 +1,4 @@
-package exam.reseller.validations.passwordMatcher;
+package exam.reseller.util.validations.passwordMatcher;
 
 import exam.reseller.domain.models.binding.UserRegisterModel;
 import jakarta.validation.ConstraintValidator;

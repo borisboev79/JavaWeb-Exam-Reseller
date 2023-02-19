@@ -1,6 +1,6 @@
 package exam.reseller.domain.models.binding;
 
-import exam.reseller.validations.checkUserExistence.ValidateLogin;
+import exam.reseller.util.validations.validateLogin.ValidateLogin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
